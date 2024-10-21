@@ -1,0 +1,73 @@
+#root {
+  height: 96vh;
+  display: grid;
+  place-items: center;
+}
+.cont {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.items {
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  height: max-content;
+  width: min-content;
+  padding: 5px;
+  text-align: center;
+  margin: 0 20px 0 20px;
+}
+.shufflename {
+  font-weight: 700;
+  font-size: 1.6em;
+}
+.student {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40vmin;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0 15px 0 15px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+.priorinput {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin-left: 10px;
+}
+.student:last-child {
+  margin-bottom: 0;
+}
+.inputcont {
+  margin-top: 10px;
+}
+button {
+  transition-duration: 0.2s;
+  box-shadow: 0 8px black;
+  font-size: 1.8em;
+  color: white;
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  border: 2px solid black;
+  background: transparent;
+}
+button:active {
+  box-shadow: none;
+  transform: translate(0, 10px);
+}
+.resetbtns {
+  display: flex;
+  flex-direction: column;
+}
+.reset {
+  margin-bottom: 10px;
+}
