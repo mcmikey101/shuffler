@@ -47,16 +47,10 @@ function App() {
   function handleReset() {
     setRandlist(group)
   }
-  function handleResetPriority() {
-
-  }
   return (
     <>
     <div className="cont">
-      <div className="resetbtns">
-        <button onClick={() => handleReset()} className="reset">Reset</button>
-        <button onClick={() => handleResetPriority()} className="reset">Reset Priority</button>
-      </div>
+      <button onClick={() => handleReset()} className="reset">Reset</button>
       <div className="items">
         <p className="shufflename">Shuffle Name</p>
         {randlist.map((i) => {

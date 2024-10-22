@@ -64,10 +64,3 @@ button:active {
   box-shadow: none;
   transform: translate(0, 10px);
 }
-.resetbtns {
-  display: flex;
-  flex-direction: column;
-}
-.reset {
-  margin-bottom: 10px;
-}
