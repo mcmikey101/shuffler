@@ -2,15 +2,17 @@ import { useState } from 'react'
 import './App.css'
 
 interface ItemProps {
+  id: number,
   name: string,
-  listid: number
+  listid: number,
+  priority: number,
+  setPriority(priority: number, id: number): void
 }
 
 function Item(props: ItemProps) {
-  const [val, setVal] = useState(0)
 
-  function handleCounter(e: any) {
-    setVal(e.target.value)
+  function handleCounter(e: any, id: number) {
+    props.setPriority(e.target.value, id)
   }
 
   return (
@@ -19,7 +21,7 @@ function Item(props: ItemProps) {
       <p className="name">{props.name}</p>
       <div className="inputcont">
         <label htmlFor="priority">Priority</label>
-        <input onChange={(e) => handleCounter(e)} value={val} className='priorinput' name='priority' type="number"/>
+        <input onChange={(e) => handleCounter(e, props.id)} value={props.priority} className='priorinput' name='priority' type="number"/>
       </div>
     </div>
   )
@@ -27,10 +29,16 @@ function Item(props: ItemProps) {
 
 function App() {
 
-  const group = ['Ivan', 'Max', 'Joe', 'Bill', 'Henry']
+  let group = [
+    [{id: 1, name: 'Joe', prior: 0}],
+    [{id: 2, name: 'Jon', prior: 0}],
+    [{id: 3, name: 'Jok', prior: 0}],
+    [{id: 4, name: 'Jom', prior: 0}],
+    [{id: 5, name: 'Job', prior: 0}],
+  ]
   const [randlist, setRandlist] = useState(group)
 
-  function shuffle(array: string[]) {
+  function shuffle(array: any) {
     let copyarr = array.slice()
     let currentIndex = copyarr.length
     while (currentIndex != 0) {
@@ -41,10 +49,23 @@ function App() {
     return copyarr
   }
 
+  function setPriority(priority: number, id: number) {
+    let copyarr = randlist.slice()
+    for (let i = 0; i < copyarr.length; i++) {
+      if (copyarr[i][0].id == id) {
+        copyarr[i][0].prior = priority
+      }
+    }
+    setRandlist(copyarr)
+  }
+
   function handleShuffle() {
     setRandlist(shuffle(randlist))
   }
   function handleReset() {
+    for (let i = 0; i < group.length; i++) {
+      group[i][0].prior = 0
+    }
     setRandlist(group)
   }
   return (
@@ -55,7 +76,7 @@ function App() {
         <p className="shufflename">Shuffle Name</p>
         {randlist.map((i) => {
           return (
-            <Item listid={randlist.indexOf(i) + 1} key={i} name={i}/>
+            <Item setPriority={setPriority} priority={i[0].prior} listid={randlist.indexOf(i) + 1} id={i[0].id} key={i[0].id} name={i[0].name}/>
           )
         })}
       </div>
