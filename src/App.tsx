@@ -59,7 +59,36 @@ function App() {
     }
     return copyarr
   }
-
+  function subgroup() {
+    let subs: any = {}
+    for (let i = 0; i < randlist.length; i++) {
+      if (!subs[randlist[i][0].prior]) {
+        subs[randlist[i][0].prior] = [randlist[i][0]]
+      } else {
+        subs[randlist[i][0].prior].push(randlist[i][0])
+      }
+    }
+    let keys: (string | number)[] = Object.keys(subs)
+    for (let i = 0; i < keys.length; i++) {
+      keys[i] = Number(keys[i])
+    }
+    keys.sort()
+    keys.reverse()
+    let p_shuffle: string[][] = []
+    for (let i = 0; i < keys.length; i++) {
+      p_shuffle.push(shuffle([subs[keys[i]]]))
+    }
+    let newarr: any = []
+    console.log(p_shuffle)
+    for (let i = 0; i < p_shuffle.length; i++) {
+      for (let j = 0; j < p_shuffle[i].length; j++) {
+        for (let q of p_shuffle[i][j]) {
+          newarr.push([q])
+        }
+      }
+    }
+    setRandlist(newarr)
+  }
   function setPriority(priority: number, id: number) {
     let copyarr = randlist.slice()
     for (let i = 0; i < copyarr.length; i++) {
@@ -71,7 +100,7 @@ function App() {
   }
 
   function handleShuffle() {
-    setRandlist(shuffle(randlist))
+    subgroup()
   }
   function handleReset() {
     for (let i = 0; i < group.length; i++) {
