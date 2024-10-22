@@ -17,8 +17,9 @@ function Item(props: ItemProps) {
 
   return (
     <div className="student">
-      <p className="listid">{String(props.listid) + ')'}</p>
-      <p className="name">{props.name}</p>
+      <div className="namecont">
+        <p className="name">{String(props.listid) + ') ' + props.name}</p>
+      </div>
       <div className="inputcont">
         <label htmlFor="priority">Priority</label>
         <input onChange={(e) => handleCounter(e, props.id)} value={props.priority} className='priorinput' name='priority' type="number"/>
@@ -30,11 +31,21 @@ function Item(props: ItemProps) {
 function App() {
 
   let group = [
-    [{id: 1, name: 'Joe', prior: 0}],
-    [{id: 2, name: 'Jon', prior: 0}],
-    [{id: 3, name: 'Jok', prior: 0}],
-    [{id: 4, name: 'Jom', prior: 0}],
-    [{id: 5, name: 'Job', prior: 0}],
+    [{id: 1, name: 'JoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoe', prior: 0}],
+    [{id: 2, name: 'JonJonJonJonJonJonJonJonJonJon', prior: 0}],
+    [{id: 3, name: 'JokJokJokJokJokJokJokJokJokJokJok', prior: 0}],
+    [{id: 4, name: 'JomJomJomJomJomJom', prior: 0}],
+    [{id: 5, name: 'JobJobJobJobJobJobJobJob', prior: 0}],
+    [{id: 6, name: 'JoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoe', prior: 0}],
+    [{id: 7, name: 'JonJonJonJonJonJonJonJonJonJon', prior: 0}],
+    [{id: 8, name: 'JokJokJokJokJokJokJokJokJokJokJok', prior: 0}],
+    [{id: 9, name: 'JomJomJomJomJomJom', prior: 0}],
+    [{id: 10, name: 'JobJobJobJobJobJobJobJob', prior: 0}],
+    [{id: 11, name: 'JoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoeJoe', prior: 0}],
+    [{id: 12, name: 'JonJonJonJonJonJonJonJonJonJon', prior: 0}],
+    [{id: 13, name: 'JokJokJokJokJokJokJokJokJokJokJok', prior: 0}],
+    [{id: 14, name: 'JomJomJomJomJomJom', prior: 0}],
+    [{id: 15, name: 'JobJobJobJobJobJobJobJob', prior: 0}],
   ]
   const [randlist, setRandlist] = useState(group)
 
@@ -71,7 +82,10 @@ function App() {
   return (
     <>
     <div className="cont">
-      <button onClick={() => handleReset()} className="reset">Reset</button>
+      <div className="btns">
+        <button onClick={() => handleReset()} className="reset">Reset</button>
+        <button onClick={() => handleShuffle()} className="shuffle">Shuffle</button>
+      </div>
       <div className="items">
         <p className="shufflename">Shuffle Name</p>
         {randlist.map((i) => {
@@ -80,7 +94,6 @@ function App() {
           )
         })}
       </div>
-      <button onClick={() => handleShuffle()} className="shuffle">Shuffle</button>
     </div>
     </>
   )
