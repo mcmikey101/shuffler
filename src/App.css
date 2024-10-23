@@ -19,7 +19,7 @@
   grid-template-columns: 1fr 1fr;
   border: 2px solid black;
   border-radius: 10px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: max-content;
   width: min-content;
   padding: 5px;
@@ -46,7 +46,8 @@
   max-width: 60%;
 }
 .priorinput {
-  width: 30px;
+  font-size: 1.3em;
+  width: 40px;
   height: 30px;
   border: 2px solid black;
   border-radius: 10px;
@@ -100,6 +101,9 @@ button:active {
 .reset {
   margin-right: 10px;
 }
+.copy {
+  margin-left: 10px;
+}
 .search {
   margin: 15px;
   font-size: 1.8em;
@@ -112,7 +116,10 @@ button:active {
 .searched {
   background-color: rgb(102, 146, 242);
 }
-
+.inputcont {
+  display: flex;
+  align-items: center;
+}
 @media (device-width <= 980px) {
   .items {
     grid-template-columns: 1fr;
@@ -124,10 +131,13 @@ button:active {
     text-align: center;
     font-size: 1.2em;
   }
-  .reset, .shuffle{
+  .reset, .shuffle, .copy{
     width: 90px;
     height: 90px;
     font-size: 1.4em;
+  }
+  .copy {
+    font-size: 1.2em;
   }
   .searchcont {
     display: flex;

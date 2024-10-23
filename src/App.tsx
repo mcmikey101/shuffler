@@ -26,10 +26,15 @@ function Item(props: ItemProps) {
     } 
     else if (e.target.value < -5) {
       props.setPriority(-5, id)
-    } else {
+    }
+    else {
       props.setPriority(e.target.value, id)
     }
-    
+  }
+  function handleBlur(e: any, id: number) {
+    if (e.target.value == '') {
+      props.setPriority(0, id)
+    }
   }
 
   return (
@@ -38,7 +43,7 @@ function Item(props: ItemProps) {
         <p className="name">{String(props.listid) + ') ' + props.name}</p>
       </div>
       <div className="inputcont">
-        <input min={-5} max={5} onChange={(e) => handleCounter(e, props.id)} value={props.priority} className='priorinput' type="number"/>
+        <input onBlur={(e) => handleBlur(e, props.id)} min={-5} max={5} onChange={(e) => handleCounter(e, props.id)} value={props.priority} className='priorinput' type="number"/>
         <button onClick={() => props.removeItem(props.id)} className="delete">Del</button>
       </div>
     </div>
@@ -80,6 +85,7 @@ function App() {
     [{id: 30, name: '29', prior: 0}],
     [{id: 31, name: '30', prior: 0}],
   ]
+
   const [randlist, setRandlist] = useState(group)
   const [edit, setEdit] = useState('Default Table Name')
   const [editing, setEditing] = useState(false)
@@ -193,7 +199,19 @@ function App() {
   function handleSearch(e: any) {
     setSearching(e.target.value)
   }
-
+  function handleCopy() {
+    let date = new Date()
+    let year = date.getFullYear()
+    let month = '0'.repeat(2 - String(date.getMonth()).length) + date.getMonth()
+    let day = '0'.repeat(2 - String(date.getDate()).length) + date.getDate()
+    let time = day + '.' + month + '.' + year
+    let copytext = edit + ' ' + time + "\n"
+    for (let i = 0; i < randlist.length; i++) {
+      copytext += String(i + 1) + ') ' + randlist[i][0].name + ', ' + 'Priority: ' + String(randlist[i][0].prior) + "\n"  
+    }
+    console.log(copytext)
+    navigator.clipboard.writeText(copytext)
+  }
   return (
     <>
     <div className="cont">
@@ -201,6 +219,7 @@ function App() {
       <div className="btns">
         <button onClick={() => handleReset()} className="reset">Reset</button>
         <button onClick={() => handleShuffle()} className="shuffle">Shuffle</button>
+        <button onClick={() => handleCopy()} className="copy">Copy</button>
       </div>
       <div className="searchcont">
         <input onChange={(e) => handleSearch(e)} type="text" className="search" placeholder='Search for a student'/>
