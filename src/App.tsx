@@ -212,9 +212,9 @@ function App() {
     let year = date.getFullYear()
     let month = '0'.repeat(2 - String(date.getMonth()).length) + date.getMonth()
     let day = '0'.repeat(2 - String(date.getDate()).length) + date.getDate()
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
+    let hours = '0'.repeat(2 - String(date.getHours()).length) + date.getHours()
+    let minutes = '0'.repeat(2 - String(date.getMinutes()).length) + date.getMinutes()
+    let seconds = '0'.repeat(2 - String(date.getSeconds()).length) + date.getSeconds()
     let time = day + '.' + month + '.' + year + ', ' + hours + ':' + minutes + ':' + seconds
     let copytext = edit + ', ' + "Рандомизировано: " + time + "\n"
     for (let i = 0; i < randlist.length; i++) {
