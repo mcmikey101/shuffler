@@ -1,27 +1,39 @@
 #root {
-  height: 96vh;
   display: grid;
   place-items: center;
+  box-sizing: border-box;
 }
 .cont {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: max-content;
+  width: 100%;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
 .btns {
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.binsvg {
+  width: 20px;
+  height: 20px;
+}
+.editsvg {
+  width: 20px;
+  height: 20px;
 }
 .items {
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: 2px solid black;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   height: max-content;
-  width: min-content;
+  width: 90%;
   padding: 5px;
   text-align: center;
   margin: 0 20px 0 20px;
@@ -35,8 +47,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 60vmin;
   border: 2px solid black;
+  width: 80%;
   border-radius: 10px;
   padding: 0 15px 0 15px;
   margin: 10px;
@@ -46,8 +58,8 @@
   max-width: 60%;
 }
 .priorinput {
-  font-size: 1.3em;
-  width: 40px;
+  font-size: 1em;
+  width: 60px;
   height: 30px;
   border: 2px solid black;
   border-radius: 10px;
@@ -58,11 +70,10 @@
   border: 2px solid black;
   border-radius: 10px;
   padding: 5px;
-  width: max-content;
-  height: max-content;
+  width: min-content;
+  height: min-content;
   color: black;
   font-size: 1em;
-  box-shadow: 0 4px 0 black;
   margin-left: 5px;
   background-color: white;
   box-shadow: 0 0 0;
@@ -78,6 +89,10 @@
   display: flex;
   align-items: center;
   margin-left: 15px;
+}
+.sncont {
+  width: max-content;
+  word-break: break-all;
 }
 button {
   transition-duration: 0.2s;
@@ -103,6 +118,8 @@ button:active {
 }
 .copy {
   margin-left: 10px;
+  word-break: normal;
+  font-size: 18px;
 }
 .search {
   margin: 15px;
@@ -120,9 +137,22 @@ button:active {
   display: flex;
   align-items: center;
 }
+.title {
+  width: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: min-content;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.8em;
+  color: white;
+}
 @media (device-width <= 980px) {
   .items {
     grid-template-columns: 1fr;
+    margin: 0;
   }
   .reshuffles {
     font-size: 1.2em;
@@ -132,12 +162,12 @@ button:active {
     font-size: 1.2em;
   }
   .reset, .shuffle, .copy{
-    width: 90px;
-    height: 90px;
     font-size: 1.4em;
+    width: 100px;
+    height: 100px;
   }
   .copy {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .searchcont {
     display: flex;
@@ -147,8 +177,15 @@ button:active {
   }
   .cont {
     padding: 0;
+    width: 92%;
   }
   .tablename {
     max-width: 200px;
+  }
+  .sncont {
+    width: 60vw;
+  }
+  label {
+    font-size: 0.8em;
   }
 }

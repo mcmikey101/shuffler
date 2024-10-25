@@ -4,9 +4,12 @@
     font-family: "Nunito", sans-serif;
 }
 html {
+    box-sizing: border-box;
     background: linear-gradient(90deg, rgba(31,20,211,1) 6%, rgba(9,9,238,1) 35%, rgba(0,212,255,1) 100%);
 }
-
+body {
+    margin: 0;
+}
 @media (device-width <= 980px) {
     html {
         background: rgb(31,20,211);
