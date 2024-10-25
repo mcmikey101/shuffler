@@ -186,6 +186,6 @@ button:active {
     width: 60vw;
   }
   label {
-    font-size: 0.8em;
+    display: none;
   }
 }
