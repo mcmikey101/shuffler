@@ -14,7 +14,7 @@ interface ItemProps {
 function Item(props: ItemProps) {
   const searched = useRef(false)
 
-  if (props.name.toLowerCase().includes(props.search) && props.search != '') {
+  if (props.name.toLowerCase().includes(props.search.toLowerCase()) && props.search != '') {
     searched.current = true
   } else {
     searched.current = false

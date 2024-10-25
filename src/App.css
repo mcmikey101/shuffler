@@ -99,11 +99,11 @@ button {
   box-shadow: 0 8px black;
   font-size: 1.8em;
   color: white;
-  width: 120px;
-  height: 120px;
   border-radius: 30px;
   border: 2px solid black;
   background: transparent;
+  width: 120px;
+  height: 120px;
 }
 .reshuffles {
   font-size: 2em;
@@ -125,6 +125,7 @@ button:active {
   margin: 15px;
   font-size: 1.8em;
   border-radius: 10px;
+  width: 90%;
 }
 .searchlabel {
   font-size: 1.8em;
@@ -159,15 +160,16 @@ button:active {
   }
   .priorinput {
     text-align: center;
+    width: 30px;
     font-size: 1.2em;
   }
   .reset, .shuffle, .copy{
-    font-size: 1.4em;
-    width: 100px;
-    height: 100px;
+    font-size: 1.2em;
+    width: 90px;
+    height: 90px;
   }
   .copy {
-    font-size: 1em;
+    font-size: 0.85em;
   }
   .searchcont {
     display: flex;
@@ -187,5 +189,8 @@ button:active {
   }
   label {
     display: none;
+  }
+  .student {
+    font-size: 1em;
   }
 }
